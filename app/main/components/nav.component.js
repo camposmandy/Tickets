@@ -9,18 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var FullListComponent = (function () {
-    function FullListComponent() {
-        this.name = 'Edjan';
+var NavComponent = (function () {
+    function NavComponent() {
     }
-    FullListComponent = __decorate([
+    NavComponent = __decorate([
         core_1.Component({
-            selector: 'full-list',
-            template: "<h1>Yeah {{name}} !!!</h1>"
+            selector: 'nav-component',
+            templateUrl: 'app/main/templates/nav.template.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], FullListComponent);
-    return FullListComponent;
+    ], NavComponent);
+    return NavComponent;
 }());
-exports.FullListComponent = FullListComponent;
-//# sourceMappingURL=full-list.component.js.map
+exports.NavComponent = NavComponent;
+//# sourceMappingURL=nav.component.js.map

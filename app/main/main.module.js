@@ -11,18 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
+var forms_1 = require('@angular/forms');
 var main_component_1 = require('./components/main.component');
-var full_list_component_1 = require('./components/full-list.component');
+var tickets_component_1 = require('./components/tickets.component');
+var form_component_1 = require('./components/form.component');
 var appRoutes = [
-    { path: 'full-list', component: full_list_component_1.FullListComponent }
+    { path: 'tickets', component: tickets_component_1.TicketsComponent },
+    { path: 'addTicket', component: form_component_1.FormComponent },
+    { path: '',
+        redirectTo: '/tickets',
+        pathMatch: 'full'
+    }
 ];
 var MainModule = (function () {
     function MainModule() {
     }
     MainModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes)],
-            declarations: [main_component_1.MainComponent, full_list_component_1.FullListComponent],
+            imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes), forms_1.FormsModule],
+            declarations: [main_component_1.MainComponent, tickets_component_1.TicketsComponent, form_component_1.FormComponent],
             bootstrap: [main_component_1.MainComponent]
         }), 
         __metadata('design:paramtypes', [])

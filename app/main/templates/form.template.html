@@ -1,0 +1,59 @@
+<div class="jumbotron">
+	<h1>Novo Ticket</h1>
+	<p>Formulário para adição de um novo ticket.</p>
+	<form>
+		<div class="row">
+			<div class="col-md-3">
+			    <label>Nome: </label>
+		    </div>
+		    <div class="col-md-3">
+			    <label>Descrição: </label>
+		    </div>
+		    <div class="col-md-3">
+		    	<label>Status: </label>
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="col-md-3">
+		        <input class="form-control" [(ngModel)]="ticket.nome" name="nome"/>
+		    </div>
+		    <div class="col-md-3">
+			    <input class="form-control"  [(ngModel)]="ticket.descricao" name="descrição"/>
+			</div>
+			<div class="col-md-3">
+			 	<select class="form-control"  [(ngModel)]="ticket.status" name="status">
+				  <option *ngFor="let st of status" [value]="st.descricao">{{st.descricao}}</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+		  		<button type="button" class="btn btn-default" (click)="adicionar(ticket)">Salvar</button>
+			</div>
+		</div>
+	</form>
+	<div>
+		<div class="table-responsive">
+	    <table class="table table-striped" >
+	      <thead>
+	        <tr>
+	          <th>Id</th>
+	          <th>Nome</th>
+	          <th>Descrição</th>
+  	          <th>Status</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	        <tr *ngFor="let t of tickets">
+	          <td>{{t.id}}</td>
+	          <td>{{t.nome}}</td>
+	          <td>{{t.descricao}}</td>
+  	          <td>{{t.status}}</td>
+	          <td><button type="button" class="btn" (click)="remover(t)"><span class="glyphicon glyphicon-trash"></span></button></td>
+  	          <td><button type="button" class="btn" (click)="atualizar(t)"><span class="glyphicon glyphicon-pencil"></span></button></td>
+
+	        </tr>
+
+	      </tbody>
+	    </table>
+    </div>   
+	</div>
+</div>

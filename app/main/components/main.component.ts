@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/main/components/main.component.html'
+  templateUrl: 'app/main/templates/nav.template.html'
 })
-export class MainComponent  { name = 'Angular'; }
+
+export class MainComponent  { }

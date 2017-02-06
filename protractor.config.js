@@ -17,6 +17,10 @@ var _ = require('lodash');
 
 exports.config = {
   directConnect: true,
+  baseUrl: 'http://localhost:9001',
+  specs: [
+   "e2e/**/tickets.component/cenario1/*.component.spec.ts",
+  ],
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
