@@ -5,12 +5,11 @@ describe('Tickets Component', function () {
   let expectedMsg = 'Tickets';
 
   beforeEach(function () {
-    browser.get('');
   });
 
   it('should display: the correct url', function(){
+    browser.get('');
     browser.getCurrentUrl().then(function (url) {
-      console.log('url', url);
         expect(url).toEqual(browser.baseUrl + '/tickets');
       });
   });

@@ -41,6 +41,7 @@ var FormComponent = (function () {
             ticket.status = t.status;
             ticket.atualizando = false;
             this.tickets.push(ticket);
+            this.ticket = new ticket_1.Ticket();
         }
         else {
             t.atualizando = false;

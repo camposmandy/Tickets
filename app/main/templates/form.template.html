@@ -1,7 +1,7 @@
 <div class="jumbotron">
 	<h1>Novo Ticket</h1>
 	<p>Formulário para adição de um novo ticket.</p>
-	<form>
+	<form id="form-addTickets">
 		<div class="row">
 			<div class="col-md-3">
 			    <label>Nome: </label>
@@ -26,7 +26,7 @@
 				</select>
 			</div>
 			<div class="col-md-3">
-		  		<button type="button" class="btn btn-default" (click)="adicionar(ticket)">Salvar</button>
+		  		<button type="button" class="btn btn-default" name="salvar" (click)="adicionar(ticket)">Salvar</button>
 			</div>
 		</div>
 	</form>
@@ -47,8 +47,8 @@
 	          <td>{{t.nome}}</td>
 	          <td>{{t.descricao}}</td>
   	          <td>{{t.status}}</td>
-	          <td><button type="button" class="btn" (click)="remover(t)"><span class="glyphicon glyphicon-trash"></span></button></td>
-  	          <td><button type="button" class="btn" (click)="atualizar(t)"><span class="glyphicon glyphicon-pencil"></span></button></td>
+	          <td><button type="button" class="btn" name="remover" (click)="remover(t)"><span class="glyphicon glyphicon-trash"></span></button></td>
+  	          <td><button type="button" class="btn" name="editar" (click)="atualizar(t)"><span class="glyphicon glyphicon-pencil"></span></button></td>
 
 	        </tr>
 

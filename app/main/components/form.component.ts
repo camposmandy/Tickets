@@ -38,6 +38,7 @@ export class FormComponent {
 			ticket.status = t.status;
 			ticket.atualizando = false;
 	  		this.tickets.push(ticket);
+	  		this.ticket = new Ticket();
 	  	} else {
 	  		t.atualizando = false;
 	  		this.ticket = new Ticket();
