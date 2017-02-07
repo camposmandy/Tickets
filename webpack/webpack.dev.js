@@ -15,6 +15,9 @@ module.exports = webpackMerge(commonConfig, {
     htmlLoader: {
         minimize: false // workaround for ng2
     },
+    devServer: {
+        historyApiFallback: true
+    },
     plugins: [
         new ExtractTextPlugin('[name].' + hash + '.css'),
         new webpack.optimize.UglifyJsPlugin({
