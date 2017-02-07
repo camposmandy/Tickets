@@ -1,4 +1,3 @@
-
 export class Ticket {
   id: number;
   nome: string;

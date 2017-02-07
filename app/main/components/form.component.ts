@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Ticket } from './ticket';
-import { Status } from './status';
+import { Ticket } from '../modules/ticket';
+import { Status } from '../modules/status';
 
 @Component({
     selector: 'form-component',

@@ -9,40 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var tickets_service_1 = require('../services/tickets.service');
 var TicketsComponent = (function () {
-    function TicketsComponent() {
-        this.tickets = [
-            {
-                id: 1,
-                nome: 'A',
-                descricao: 'Primeira letra do alfabeto.',
-                status: 'TO DO',
-                atualizando: false
-            },
-            {
-                id: 2,
-                nome: 'B',
-                descricao: 'Segunda letra do alfabeto.',
-                status: 'TO DO',
-                atualizando: false
-            },
-            {
-                id: 3,
-                nome: 'C',
-                descricao: 'Terceira letra do alfabeto.',
-                status: 'TO DO',
-                atualizando: false
-            }
-        ];
+    function TicketsComponent(ticketsService) {
+        this.ticketsService = ticketsService;
     }
     TicketsComponent.prototype.ngOnInit = function () {
+        this.getTickets();
+    };
+    TicketsComponent.prototype.getTickets = function () {
+        var _this = this;
+        this.ticketsService.getTickets().then(function (tickets) { return _this.tickets = tickets; });
     };
     TicketsComponent = __decorate([
         core_1.Component({
             selector: 'tickets-component',
-            templateUrl: 'app/main/templates/tickets.template.html'
+            templateUrl: 'app/main/templates/tickets.template.html',
+            providers: [tickets_service_1.TicketsService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [tickets_service_1.TicketsService])
     ], TicketsComponent);
     return TicketsComponent;
 }());

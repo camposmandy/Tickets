@@ -7,7 +7,6 @@ import { MainComponent }  from './components/main.component';
 import { TicketsComponent  }  from './components/tickets.component';
 import { FormComponent  }  from './components/form.component';
 
-
 const appRoutes: Routes = [
   { path: 'tickets',    component: TicketsComponent },
   { path: 'addTicket',  component: FormComponent },

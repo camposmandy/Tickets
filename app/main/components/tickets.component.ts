@@ -1,39 +1,23 @@
 import { Component } from '@angular/core';
-import { Ticket } from './ticket';
+import {TicketsService} from '../services/tickets.service';
+import {Ticket} from '../modules/ticket';
 
 @Component({
     selector: 'tickets-component',
-    templateUrl: 'app/main/templates/tickets.template.html'
+    templateUrl: 'app/main/templates/tickets.template.html',
+	providers: [TicketsService]
 })
 
+
 export class TicketsComponent {
-		tickets: Ticket[] = [
-			{
-				id: 1,
-				nome: 'A',
-				descricao: 'Primeira letra do alfabeto.',
-				status: 'TO DO',
-				atualizando: false
-			},
-			{
-				id: 2,
-				nome: 'B',
-				descricao: 'Segunda letra do alfabeto.',
-				status: 'TO DO',
-				atualizando: false
+	constructor(private ticketsService: TicketsService) {}
 
-
-			},
-			{
-				id: 3,
-				nome: 'C',
-				descricao: 'Terceira letra do alfabeto.',
-				status: 'TO DO',
-				atualizando: false
-
-			}
-		];
-
+	tickets: Ticket[];
 	ngOnInit(): void {
+		this.getTickets();
+	}
+
+	getTickets():void{
+		this.ticketsService.getTickets().then(tickets => this.tickets = tickets);
 	}
 }
