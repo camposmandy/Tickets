@@ -1,5 +1,4 @@
 # Aplicação Angular 2 com Webpack de exemplo com testes unitários e end-2-end
-[![Build Status][travis-badge]][travis-badge-url]
 
 Essa aplicação tem como objetivo demonstrar através de exemplos práticos testes unitários com Karma e e2e com Protractor
 para aplicações Angular 2 com typescript e webpack.
@@ -36,7 +35,7 @@ Nós recomendamos que pare a execução de todos antes de executar algum isolada
 Testes unitários Typescript são armazenados no mesmo nível do arquivo a ser testado, dentro da estrutura da pasta 'app'.
 Os arquivos precisam terminar com `.spec.ts`.
 
-Rode os testes executanto 'npm test'
+Rode os testes executanto `npm test`.
 
 Esse comando primeiro compila a aplicação e roda o test-runner do Karma.
 O test-runner fica escutando alterações nos arquivos de teste para rodar novamente.
