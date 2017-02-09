@@ -9,38 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
+require('rxjs/add/operator/catch');
+var Rx_1 = require('rxjs/Rx');
 var TicketsService = (function () {
-    function TicketsService() {
+    function TicketsService(http) {
+        this.http = http;
     }
+    TicketsService.prototype.OnInit = function () {
+    };
     TicketsService.prototype.getTickets = function () {
-        var tickets = [
-            {
-                id: 1,
-                nome: 'A',
-                descricao: 'Primeira letra do alfabeto.',
-                status: 'TO DO',
-                atualizando: false
-            },
-            {
-                id: 2,
-                nome: 'B',
-                descricao: 'Segunda letra do alfabeto.',
-                status: 'TO DO',
-                atualizando: false
-            },
-            {
-                id: 3,
-                nome: 'C',
-                descricao: 'Terceira letra do alfabeto.',
-                status: 'TO DO',
-                atualizando: false
-            }
-        ];
-        return Promise.resolve(tickets);
+        return this.http.get('app/main/data/ticket.data.json').map(function (res) { return res.json(); }).catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error by amanda'); });
     };
     TicketsService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], TicketsService);
     return TicketsService;
 }());

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {TicketsService} from '../services/tickets.service';
-import {Ticket} from '../modules/ticket';
 
 @Component({
     selector: 'tickets-component',
@@ -8,16 +7,18 @@ import {Ticket} from '../modules/ticket';
 	providers: [TicketsService]
 })
 
-
 export class TicketsComponent {
 	constructor(private ticketsService: TicketsService) {}
 
-	tickets: Ticket[];
+	tickets: any;
+
 	ngOnInit(): void {
-		this.getTickets();
+		this.loadTickets();
 	}
 
-	getTickets():void{
-		this.ticketsService.getTickets().then(tickets => this.tickets = tickets);
+	loadTickets(){
+		this.ticketsService.getTickets().subscribe(tickets => this.tickets = tickets, 
+			err => { console.log('não foi dessa vez amanda', err);}
+		);
 	}
 }

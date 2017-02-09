@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
 var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
 var main_component_1 = require('./components/main.component');
 var tickets_component_1 = require('./components/tickets.component');
 var form_component_1 = require('./components/form.component');
@@ -28,7 +29,7 @@ var MainModule = (function () {
     }
     MainModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes), forms_1.FormsModule],
+            imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes), forms_1.FormsModule, http_1.HttpModule],
             declarations: [main_component_1.MainComponent, tickets_component_1.TicketsComponent, form_component_1.FormComponent],
             bootstrap: [main_component_1.MainComponent]
         }), 

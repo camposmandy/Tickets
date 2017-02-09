@@ -1,28 +1,28 @@
 import { browser, element, by } from 'protractor';
 
-describe('Tickets Component', function () {
+describe('Tickets Component',  () =>  {
 
   let expectedMsg = 'Tickets';
 
-  beforeEach(function () {
+  beforeEach( () =>  {
   });
 
-  it('should display: the correct url', function(){
+  it('should display: the correct url',  () => {
     browser.get('');
-    browser.getCurrentUrl().then(function (url) {
+    browser.getCurrentUrl().then( (url) =>  {
         expect(url).toEqual(browser.baseUrl + '/tickets');
       });
   });
 
-  it('should display: ' + expectedMsg, function () {
+  it('should display: ' + expectedMsg, () =>  {
     expect(element(by.css('h1')).getText()).toEqual(expectedMsg);
   });
 
-  it('should display: ' + 'Todos os tickets cadastrados.', function () {
+  it('should display: ' + 'Todos os tickets cadastrados.',  () =>  {
     expect(element(by.css('p')).getText()).toEqual('Todos os tickets cadastrados.');
   });
 
-  it('should display: titles of table', function () {
+  it('should display: titles of table',  () =>  {
     var _elementTable = element.all(by.css('.table th'));
     expect(_elementTable.get(0).getText()).toEqual('Id');
     expect(_elementTable.get(1).getText()).toEqual('Nome');
@@ -30,9 +30,9 @@ describe('Tickets Component', function () {
     expect(_elementTable.get(3).getText()).toEqual('Status');
   });
   
-  it('should display: elements on table', function () {
+  it('should display: elements on table',  () =>  {
     var el = element.all(by.css('.table tbody tr'));
-    el.count().then(function (count){
+    el.count().then( (count) => {
       expect(count === 3);
     });
   });

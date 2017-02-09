@@ -15,11 +15,11 @@ var TicketsComponent = (function () {
         this.ticketsService = ticketsService;
     }
     TicketsComponent.prototype.ngOnInit = function () {
-        this.getTickets();
+        this.loadTickets();
     };
-    TicketsComponent.prototype.getTickets = function () {
+    TicketsComponent.prototype.loadTickets = function () {
         var _this = this;
-        this.ticketsService.getTickets().then(function (tickets) { return _this.tickets = tickets; });
+        this.ticketsService.getTickets().subscribe(function (tickets) { return _this.tickets = tickets; }, function (err) { console.log('não foi dessa vez amanda', err); });
     };
     TicketsComponent = __decorate([
         core_1.Component({
