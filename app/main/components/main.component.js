@@ -17,7 +17,7 @@ var MainComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             viewProviders: [tickets_service_1.TicketsService],
-            templateUrl: 'app/main/templates/nav.template.html'
+            templateUrl: './app/main/templates/nav.template.html'
         }), 
         __metadata('design:paramtypes', [])
     ], MainComponent);
