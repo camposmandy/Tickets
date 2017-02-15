@@ -1,56 +1,64 @@
-// import { TicketsService } from 'C:/tickets-project/app/main/services/tickets.service';
-// import { async, inject, TestBed, ComponentFixture } from '@angular/core/testing';
-// import { DebugElement, NO_ERRORS_SCHEMA, Component } from '@angular/core';
-// import { BaseRequestOptions, ConnectionBackend, Http } from '@angular/http';
-// import { MockBackend } from '@angular/http/testing';
+import { TicketsService } from './tickets.service';
+import { async, inject, TestBed } from '@angular/core/testing';
+import { Response,ResponseOptions, Http, HttpModule, XHRBackend } from '@angular/http';
+import { MockBackend, MockConnection } from '@angular/http/testing';
 
-// describe('Tickets Service test', () => {
-// 	let comp: TicketsService;
-// 	let fixture: ComponentFixture<TicketsService>;
-// 	let spy: jasmine.Spy;
-// 	let tickets: any = [
-// 		{
-// 			"id": 1,
-// 			"nome": "A",
-// 			"descricao": "Primeira letra do alfabeto.",
-// 			"status": "TO DO",
-// 			"atualizando": false
-// 		},
-// 		{
-// 			"id": 2,
-// 			"nome": "B",
-// 			"descricao": "Segunda letra do alfabeto.",
-// 			"status": "TO DO",
-// 			"atualizando": false
-// 		},
-// 		{
-// 			"id": 3,
-// 			"nome": "C",
-// 			"descricao": "Terceira letra do alfabeto.",
-// 			"status": "TO DO",
-// 			"atualizando": false
-// 		}
-// 	];
-
-//   	beforeEach(async(() => {
-//     	TestBed.configureTestingModule({
-// 		    declarations: [TicketsService], 
-// 		    schemas: [NO_ERRORS_SCHEMA]
-// 		  }).compileComponents();	
-// 	}));
+describe('Tickets Service test', () => {
+	let tickets: any = [
+		{
+			"id": 1,
+			"nome": "A",
+			"descricao": "Primeira letra do alfabeto.",
+			"status": "TO DO",
+			"atualizando": false
+		},
+		{
+			"id": 2,
+			"nome": "B",
+			"descricao": "Segunda letra do alfabeto.",
+			"status": "TO DO",
+			"atualizando": false
+		},
+		{
+			"id": 3,
+			"nome": "C",
+			"descricao": "Terceira letra do alfabeto.",
+			"status": "TO DO",
+			"atualizando": false
+		}
+	];
+	let backend: MockBackend;
+	let service: TicketsService;
+	let response: Response;
+  	beforeEach(async(() => {
+    	TestBed.configureTestingModule({
+		    imports: [HttpModule], 
+		    providers: [
+		        TicketsService,
+		       { provide: XHRBackend, useClass: MockBackend }
+	        ]
+		  }).compileComponents();	
+	}));
   	
-//   	beforeEach(() => {
-//   		fixture = TestBed.createComponent(TicketsService);
-//     	comp = fixture.componentInstance; 
+  	beforeEach(inject([Http, XHRBackend], (http: Http, be: MockBackend) => {
+  		backend = be;
+  		service = new TicketsService(http);
+  		let options = new ResponseOptions({status: 200, body: {data: tickets}});
+  		response = new Response(options);
+  	}));
 
-// 		fixture.detectChanges();
-//   	});
+  	it('should test: TicketsService was defined', () => {
+        expect(service).toBeDefined();
+  	});
 
-// 	it('should test: method getTickets', () => {
-		
-//         expect(comp).toBeDefined();
+  	it('should test: method was declared', () => {
+  		expect(service.getTickets).toBeDefined();
+  	});
 
-		
-		
-// 	});
-// });
+	it('should test: method getTickets', () => {	
+        backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
+        service.getTickets().toPromise().then(t =>{
+        	expect(t).toEqual({data: tickets});
+        });
+	});
+});

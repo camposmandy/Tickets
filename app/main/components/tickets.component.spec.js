@@ -57,10 +57,10 @@ describe('Tickets Component test', function () {
         fixture.detectChanges();
         spyOn(comp, 'loadTickets').and.returnValue(tickets);
     });
-    it('should test: TicketsComponent is define', function () {
+    it('should test: TicketsComponent was defined', function () {
         expect(comp).toBeDefined();
     });
-    it('should test: method loadTickets is define', function () {
+    it('should test: method loadTickets was defined', function () {
         expect(comp.loadTickets).toBeDefined();
     });
     it('should test: method loadTickets', function () {

@@ -62,10 +62,10 @@ describe('Tickets Component test', () => {
   	});
 
 
-  	it('should test: TicketsComponent is define', () => {
+  	it('should test: TicketsComponent was defined', () => {
         expect(comp).toBeDefined();
   	});
-  	it('should test: method loadTickets is define', () => {
+  	it('should test: method loadTickets was defined', () => {
         expect(comp.loadTickets).toBeDefined();
   	});
 	it('should test: method loadTickets', () => {
