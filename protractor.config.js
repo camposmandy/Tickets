@@ -17,10 +17,6 @@ var _ = require('lodash');
 
 exports.config = {
   directConnect: true,
-  baseUrl: 'http://localhost:9001',
-  specs: [
-   "e2e/**/tickets.component/cenario1/*.component.spec.ts",
-  ],
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
@@ -30,15 +26,15 @@ exports.config = {
   // Framework to use. Jasmine is recommended.
   framework: 'jasmine',
 
-  // Spec patterns are relative to this config file
+  //Spec patterns are relative to this config file
   specs: ['**/*e2e-spec.js' ],
 
 
   // For angular tests
   useAllAngular2AppRoots: true,
-
+  
   // Base URL for application server
-  baseUrl: 'http://localhost:9001',
+  baseUrl: 'http://localhost:9001/',
 
   // doesn't seem to work.
   // resultJsonOutputFile: "foo.json",
@@ -183,5 +179,4 @@ function Reporter(options) {
       _pad = _pad + '  ';
     }
   }
-
 }

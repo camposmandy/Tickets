@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import {TicketsService} from '../services/tickets.service';
 
 @Component({
+	moduleId: 'module.id', 
     selector: 'tickets-component',
-    templateUrl: 'app/main/templates/tickets.template.html',
+    template: '<div class="jumbotron"> <h1>Tickets</h1> <p>Todos os tickets cadastrados.</p> <div class="table-responsive"> <table class="table table-striped"> <thead> <tr><th>Id</th><th>Nome</th><th>Descrição</th><th>Status</th> </tr></thead><tbody><tr *ngFor="let t of tickets"><td>{{t.id}}</td> <td>{{t.nome}}</td> <td>{{t.descricao}}</td><td>{{t.status}}</td></tr> </tbody></table></div> </div>',
 	providers: [TicketsService]
 })
 
