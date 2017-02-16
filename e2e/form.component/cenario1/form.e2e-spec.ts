@@ -9,8 +9,8 @@ describe('Form Component', function () {
   it('should display: the correct url', function(){
     browser.get('addTicket');
     browser.getCurrentUrl().then(function (url) {
-        expect(url).toEqual(browser.baseUrl + '/addTicket');
-      });
+      expect(url).toEqual(browser.baseUrl + 'addTicket');
+    });
   });
 
   it('should display: Title', function () {
@@ -64,7 +64,7 @@ describe('Form Component', function () {
     _button.click().then(function () {
         var el = element.all(by.css('.table tbody tr'));
           el.count().then(function (count){
-          expect(count === 1);
+          expect(count === 1).toBeTruthy();;
         });
     });
   });
@@ -81,7 +81,7 @@ describe('Form Component', function () {
     _button.click().then(function () {
         var el = element.all(by.css('.table tbody tr'));
           el.count().then(function (count){
-          expect(count === 0);
+          expect(count === 0).toBeTruthy();
         });
     });
   });

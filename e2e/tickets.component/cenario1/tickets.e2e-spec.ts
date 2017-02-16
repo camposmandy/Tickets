@@ -8,10 +8,10 @@ describe('Tickets Component',  () =>  {
   });
 
   it('should display: the correct url',  () => {
-    browser.get('');
+    browser.get('tickets');
     browser.getCurrentUrl().then( (url) =>  {
-        expect(url).toEqual(browser.baseUrl + '/tickets');
-      });
+      expect(url).toEqual(browser.baseUrl + 'tickets');
+    });
   });
 
   it('should display: ' + expectedMsg, () =>  {
@@ -33,7 +33,7 @@ describe('Tickets Component',  () =>  {
   it('should display: elements on table',  () =>  {
     var el = element.all(by.css('.table tbody tr'));
     el.count().then( (count) => {
-      expect(count === 3);
+      expect(count === 3).toBeTruthy();
     });
   });
 });
