@@ -1,5 +1,5 @@
 import { TicketsComponent } from '../components/tickets.component';
-import { TicketsService } from 'C:/tickets-project/app/main/services/tickets.service';
+import { TicketsService } from '../services/tickets.service';
 import { async, inject, TestBed, ComponentFixture } from '@angular/core/testing';
 import { DebugElement, NO_ERRORS_SCHEMA, Component } from '@angular/core';
 import { BaseRequestOptions, ConnectionBackend, Http } from '@angular/http';
@@ -36,7 +36,7 @@ describe('Tickets Component test', () => {
 
   	beforeEach(async(() => {
     	TestBed.configureTestingModule({
-		    declarations: [TicketsComponent], 
+		    declarations: [TicketsComponent],
 		    schemas: [NO_ERRORS_SCHEMA],
 		     providers: [
 		        BaseRequestOptions,
@@ -50,12 +50,12 @@ describe('Tickets Component test', () => {
 		        },
 		        TicketsService
 	        ]
-		  }).compileComponents();	
+		  }).compileComponents();
 	}));
-  	
+
   	beforeEach(() => {
   		fixture = TestBed.createComponent(TicketsComponent);
-    	comp = fixture.componentInstance; 
+    	comp = fixture.componentInstance;
 
 		fixture.detectChanges();
 		spyOn(comp, 'loadTickets').and.returnValue(tickets);
