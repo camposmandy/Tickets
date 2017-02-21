@@ -11,3 +11,8 @@ e2e/**/*.js
 e2e/**/*.js.map
 _test-output
 _temp
+dist
+.tmp
+_test-output
+coverage
+path

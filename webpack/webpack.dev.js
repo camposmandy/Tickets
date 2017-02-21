@@ -4,6 +4,8 @@ var commonConfig = require('./webpack.common.js');
 var hash = commonConfig.hash;
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers.js');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = webpackMerge(commonConfig, {
     devtool: 'source-map',
     output: {
@@ -26,6 +28,16 @@ module.exports = webpackMerge(commonConfig, {
             }
         }),
         new webpack.NoErrorsPlugin(),
-        new webpack.optimize.DedupePlugin()
+        new webpack.optimize.DedupePlugin(),
+      new CopyWebpackPlugin([
+        // {output}/file.txt
+        { from: 'node_modules/bootstrap/dist/',to: 'node_modules/bootstrap/dist/' },
+        { from: 'resources', to: 'resources' },
+        { from: 'node_modules/core-js', to: 'node_modules/core-js' },
+        { from: 'node_modules/zone.js/dist', to: 'node_modules/zone.js/dist' },
+        { from: 'app', to: 'app' }
+      ], {
+        copyUnmodified: true
+      })
     ]
 });

@@ -1,6 +1,6 @@
 "use strict";
 var tickets_component_1 = require('../components/tickets.component');
-var tickets_service_1 = require('C:/tickets-project/app/main/services/tickets.service');
+var tickets_service_1 = require('../services/tickets.service');
 var testing_1 = require('@angular/core/testing');
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
