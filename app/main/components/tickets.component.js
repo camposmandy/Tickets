@@ -19,6 +19,7 @@ var TicketsComponent = (function () {
     };
     TicketsComponent.prototype.loadTickets = function () {
         var _this = this;
+        console.log('edjan');
         this.ticketsService.getTickets().subscribe(function (tickets) { return _this.tickets = tickets; }, function (err) { console.log('não foi dessa vez amanda', err); });
     };
     TicketsComponent = __decorate([

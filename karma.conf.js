@@ -5,10 +5,9 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['PhantomJS'],
     files: [
-      'node_modules/es6-shim/es6-shim.min.js',
-      'node_modules/core-js/client/shim.min.js',
-      'node_modules/zone.js/dist/zone.js'
-      //'karma.entry.js'
+      //'app/**/*.spec.ts'
+      //'app/**/*.spec.js'
+      'karma.entry.js'
     ],
     frameworks: ['jasmine'],
     logLevel: config.LOG_INFO,
