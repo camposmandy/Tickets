@@ -1,12 +1,10 @@
 import { browser, element, by } from 'protractor';
-let ngApimock = require('./protractor.config.js');
 
 describe('Tickets Component Fail',  () =>  {
-
   let expectedMsg = 'Tickets';
-  ngApimock.selectScenario('getTickets','get0Tickets');
 
   beforeEach( () =>  {
+    ngApimock.selectScenario('getTickets','get0Tickets');
   });
 
   it('should display: the correct url',  () => {
