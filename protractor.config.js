@@ -14,7 +14,6 @@ var fs = require('fs');
 var path = require('canonical-path');
 var _ = require('lodash');
 
-
 exports.config = {
   directConnect: true,
 
@@ -40,6 +39,7 @@ exports.config = {
   // resultJsonOutputFile: "foo.json",
 
   onPrepare: function() {
+    global.ngApimock = require('./.tmp/some-other-dir/protractor.mock.js');
     //// SpecReporter
     //var SpecReporter = require('jasmine-spec-reporter');
     //jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: 'none'}));

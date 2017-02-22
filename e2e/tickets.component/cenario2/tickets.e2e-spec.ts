@@ -1,10 +1,10 @@
 import { browser, element, by } from 'protractor';
 let ngApimock = require('./protractor.config.js');
 
-describe('Tickets Component',  () =>  {
+describe('Tickets Component Fail',  () =>  {
 
   let expectedMsg = 'Tickets';
-  ngApimock.selectScenario('getTickets', 'getAllTickets');
+  ngApimock.selectScenario('getTickets','get0Tickets');
 
   beforeEach( () =>  {
   });
@@ -32,10 +32,11 @@ describe('Tickets Component',  () =>  {
     expect(_elementTable.get(3).getText()).toEqual('Status');
   });
   
-  it('should display: elements on table',  () =>  {
+  it('should display: none elements on table',  () =>  {
     var el = element.all(by.css('.table tbody tr'));
     el.count().then( (count) => {
-      expect(count === 1).toBeTruthy();
+      expect(count === 3).toBeFalsy();
+      expect(count === 0).toBeTruthy();
     });
   });
 });

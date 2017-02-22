@@ -53,5 +53,4 @@ export class FormComponent {
 		t.atualizando = true;
 		this.ticket = t;
 	}
-	//https://github.com/edjansantos/angular2-webpack-starter
 }

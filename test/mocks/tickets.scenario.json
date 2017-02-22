@@ -1,0 +1,29 @@
+{
+  "expression": "app/main/data/ticket.data.json",
+  "method": "GET",
+  "name": "getTickets",
+  "isArray": true,
+  "responses": {
+    "get0Tickets": {
+      "status": 500,
+      "headers": {},
+      "data": [],
+      "statusText": ""
+    },
+    "getAllTickets": {
+      "default": true,
+      "status": 200,
+      "headers": {},
+      "data": [
+        {
+          "id": 1,
+          "nome": "A",
+          "descricao": "Primeira letra do alfabeto.",
+          "status": "TO DO",
+          "atualizando": false
+        }
+      ],
+      "statusText": ""
+    }
+  }
+}
